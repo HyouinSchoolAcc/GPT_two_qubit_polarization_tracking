@@ -156,8 +156,7 @@ def elapsed(a):
     return time.time()-a
 model_path = "C:/Users/yueze/Desktop/trained_model.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-modelt = EncoderDecoderModelWithMultiHeadAttention(input_feature_dim, embed_size, target_dim, block_size+1, num_heads, num_layers)
-modelt.load_state_dict(torch.load(model_path, map_location=device))
+modelt =  torch.load(model_path, map_location=device)
 modelt.to(device)
 print("Model loaded from", model_path)
 class DummyHardware:
